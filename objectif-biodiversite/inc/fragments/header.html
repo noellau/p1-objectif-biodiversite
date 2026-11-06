@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="fr-ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objectif biodiversite liste des espèces</title>
+
+    <!-- Liens css -->
+    <link rel="stylesheet" href="<?php echo $niveau ?>assets/css/style-liste.css">
+    <link rel="stylesheet" href="<?php echo $niveau ?>assets/sdg/dist/css/qc-sdg.min.css">
+
+    <!-- Liens js -->
+    <script src="<?php echo $niveau ?>assets/sdg/dist/js/qc-sdg.min.js" defer></script>
+</head>
+
+<body>
+    <div id="pivEnteteExempleRecherchePersonnalisee">
+        <qc-piv-header title-text="Objectif biodiversité" title-url alt-logo="Accédez à Québec.ca"
+            enable-search="true" show-search="true">
+            <ul slot="links">
+                <li><a href="#fakeEnglish">English</a>
+                </li>
+                <li><a href="#">Nous joindre</a>
+                </li>
+            </ul>
+
+            <form slot="search-zone" method="get" action="https://www.google.ca/search">
+                <qc-search-bar name="q" piv-background></qc-search-bar>
+            </form>
+        </qc-piv-header>
+    </div>
+    <nav class="nav" aria-label="Menu principal">
+        <ul class="nav__list" id="navList">
+            <li class="nav__list-item">
+                <a href="<?php echo $niveau ?>" class="nav__link nav__link-active" aria-current="page">Accueil</a>
+            </li>
+            <li class="nav__list-item">
+                <a href="<?php echo $niveau ?>especes/index.php" class="nav__link">Especes</a>
+            </li>
+            <li class="nav__list-item">
+                <a href="<?php echo $niveau ?>" class="nav__link">À propos</a>
+            </li>
+    </nav>
