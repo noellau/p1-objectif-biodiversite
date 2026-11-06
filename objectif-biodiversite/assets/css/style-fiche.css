@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+@import url("../sdg/dist/css/qc-sdg.min.css");
+@import url("style-liste.css");
+
+/***** TABLE DES MATIÈRES *****/
+/*
+    LISTE CARTES
+        Images
+        Informations
+
+    MEDIA QUERIES
+        Table
+            Liste cartes
+                Images
+                Informations
+*/
+
+.contenu-principal {
+    padding: 0 10px 0 10px;
+    /*** FICHE ***/
+    .contenu-principal__fiche {
+        /** Infos rapides **/
+        .fiche__infos-rapides {
+            font-size: 1.125em;
+            padding-top: 10px;
+
+            .infos-rapides-titres {
+                font-weight: bold;
+            }
+
+            .infos-rapides__pastille {
+                display: flex;
+
+                .pastille {
+                    margin: 0 10px;
+                }
+            }
+        }
+        /** Textes **/
+        .contenu-principal__textes {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+
+            .textes__description{
+                margin: 75px 0 15px 0;
+            }
+
+            .textes__details {
+                border: 1px solid var(--qc-color-grey-light);
+
+                .details__titre {
+                    font-weight: var(--qc-font-weight-semi-bold);
+                    background-color: var(--qc-color-grey-pale);
+                    height: 56px;
+                    padding: 16px;
+                }
+
+                .details__titre::marker {
+                    color: inherit;
+                }
+
+                .details__infos{
+                    padding: 24px 16px;
+                }
+            }
+        }
+    }
+}

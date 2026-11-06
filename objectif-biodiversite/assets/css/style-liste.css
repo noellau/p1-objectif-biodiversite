@@ -53,7 +53,7 @@
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
-                padding: 0.625rem;
+                padding: 0.625em;
                 border: 1px solid var(--qc-color-grey-light);
 
                 .infos-espece__nom-francais {
@@ -68,35 +68,6 @@
                     font-style: italic;
                 }
 
-                /* Pastilles */
-                .infos-espece__section-pastilles {
-                    display: flex;
-                    gap: 0.625rem;
-
-                    .pastille {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        height: 24px;
-                        padding: 0.125rem 0.5rem;
-                        border-radius: 20rem;
-                        background-color: var(--qc-color-grey-pale);
-                        color: var(--qc-color-grey-dark);
-                    }
-
-                    .pastille-rouge {
-                        background-color: var(--qc-color-pink-pale);
-                        color: var(--qc-color-red-dark);
-                    }
-                    .pastille-jaune {
-                        background-color: var(--qc-color-yellow-pale);
-                        color: var(--qc-color-yellow-dark);
-                    }
-                    .pastille-verte {
-                        background-color: var(--qc-color-green-pale);
-                        color: var(--qc-color-green-dark);
-                    }
-                }
                 .infos-espece__btn {
                     margin: 0;
                     width: 100%;
@@ -104,6 +75,36 @@
             }
         }
     }
+}
+/** PASTILLES **/
+.infos-espece__section-pastilles {
+    display: flex;
+    gap: 0.625em;
+
+}
+
+.pastille {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    padding: 0.125em 0.5em;
+    border-radius: 20em;
+    background-color: var(--qc-color-grey-pale);
+    color: var(--qc-color-grey-dark);
+}
+
+.pastille-rouge {
+    background-color: var(--qc-color-pink-pale);
+    color: var(--qc-color-red-dark);
+}
+.pastille-jaune {
+    background-color: var(--qc-color-yellow-pale);
+    color: var(--qc-color-yellow-dark);
+}
+.pastille-verte {
+    background-color: var(--qc-color-green-pale);
+    color: var(--qc-color-green-dark);
 }
 
 /**** MÉDIA QUERIES ****/

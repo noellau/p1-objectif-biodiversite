@@ -39,7 +39,7 @@ $pdosResultat->closecursor();
     <link rel="stylesheet" href="<?php echo $niveau ?>assets/sdg/dist/css/qc-sdg.min.css">
 
     <!-- Liens js -->
-    <script defer src="<?php echo $niveau ?>/assets/sdg/dist/js/qc-sdg.js"></script>
+    <script src="<?php echo $niveau ?>assets/sdg/dist/js/qc-sdg.min.js" defer></script>
 </head>
 
 <body>
