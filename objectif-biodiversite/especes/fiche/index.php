@@ -11,29 +11,10 @@ $arrAnimale = $pdosResultat->fetch();
 
 $pdosResultat->closecursor();
 ?>
-
-<!DOCTYPE html>
-<html lang="fr-ca">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $arrAnimale['nom_francais'] ?></title>
-
-    <!-- Liens css -->
-    <link rel="stylesheet" href="<?= $niveau ?>assets/sdg/dist/css/qc-sdg.min.css">
-    <link rel="stylesheet" href="<?= $niveau ?>assets/css/style-liste.css">
-    <link rel="stylesheet" href="<?= $niveau ?>assets/css/style-fiche.css">
-
-    <!-- Liens js -->
-    <script src="<?php echo $niveau ?>assets/sdg/dist/js/qc-sdg.min.js" defer></script>
-</head>
-
-<body>
-    <?php include($niveau . "inc/fragments/navigation.html") ?>
+    <?php include($niveau . "inc/fragments/header.html") ?>
     <main class="contenu-principal qc-container">
         <div class="contenu-principal__fiche">
-            <h1 class="fiche__nom-francais"><?= $arrAnimale['nom_francais'] ?></h1>
+            <h1 class="fiche__nom-francais" id="main"><?= $arrAnimale['nom_francais'] ?></h1>
             <div class="fiche__infos-rapides">
                 <figure class="infos-rapides__figure">
                     <img class="figure__image" src="<?= $niveau ?>assets/images/<?= $arrAnimale['nom_image'] ?>"

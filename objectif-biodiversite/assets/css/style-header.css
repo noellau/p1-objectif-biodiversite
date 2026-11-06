@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+@import url("../sdg/dist/css/qc-sdg.min.css");
+
+.nav{
+    background-color: #19406C;
+    max-width: 100%;
+
+    .nav__list{
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 38px;
+
+        .nav__list-item{
+            .nav__link{
+                height: 72px;
+                text-decoration: none;
+                font-size: large;
+                color: white;
+                padding: 12px 8px;
+            }
+            .nav__link:hover{
+                border-bottom: 4px solid #DAE6F0;
+            }
+            .nav__link:active{
+                font-weight: var(--qc-font-weight-semi-bold);
+            }
+        }
+    }
+}

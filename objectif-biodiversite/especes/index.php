@@ -26,41 +26,9 @@ for ($cptEnr = 0; $ligne = $pdosResultat->fetch(); $cptEnr++) {
 $pdosResultat->closecursor();
 ?>
 
-<!DOCTYPE html>
-<html lang="fr-ca">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Objectif biodiversite liste des espèces</title>
-
-    <!-- Liens css -->
-    <link rel="stylesheet" href="<?php echo $niveau ?>assets/css/style-liste.css">
-    <link rel="stylesheet" href="<?php echo $niveau ?>assets/sdg/dist/css/qc-sdg.min.css">
-
-    <!-- Liens js -->
-    <script src="<?php echo $niveau ?>assets/sdg/dist/js/qc-sdg.min.js" defer></script>
-</head>
-
-<body>
-    <div id="pivEnteteExempleRecherchePersonnalisee">
-        <qc-piv-header title-text="Titre du site ou du service" title-url alt-logo="Accédez à Québec.ca"
-            enable-search="true" show-search="true">
-            <ul slot="links">
-                <li><a href="#fakeEnglish">English</a>
-                </li>
-                <li><a href="#">Nous joindre</a>
-                </li>
-            </ul>
-
-            <form slot="search-zone" method="get" action="https://www.google.ca/search">
-                <qc-search-bar name="q" piv-background></qc-search-bar>
-            </form>
-        </qc-piv-header>
-    </div>
-    <?php include($niveau . "inc/fragments/navigation.html") ?>
+    <?php include($niveau . "inc/fragments/header.html") ?>
     <h1>Liste des espèces</h1>
-    <main class="contenu-principal">
+    <main class="contenu-principal" id="main">
         <ul class="contenu-principal__liste-cartes">
             <?php for ($cptAnimale = 0; $cptAnimale < count($arrAnimaux); $cptAnimale++) { ?>
                 <li class="liste-cartes__item">
@@ -100,8 +68,7 @@ $pdosResultat->closecursor();
                             </div>
                             <div>
                                 <a class="qc-button qc-secondary infos-espece__btn"
-                                    href="fiche/index.php?id=<?php echo $arrAnimaux[$cptAnimale]['id'] ?>">Consulter la
-                                    fiche</a>
+                                    href="fiche/index.php?id=<?php echo $arrAnimaux[$cptAnimale]['id'] ?>">Consulter la fiche</a>
                             </div>
                         </div>
                     </div>
