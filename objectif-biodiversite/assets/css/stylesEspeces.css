@@ -17,17 +17,14 @@
 */
 
 /** LISTE CARTES **/
-
-.contenu-principal__liste-cartes {
+.liste-cartes {
     list-style: none;
     padding: 0 10px 0 10px;
-    margin: 0;
     width: 100%;
-    max-width: none;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: center;
     gap: 20px;
 
     .liste-cartes__item {
@@ -41,7 +38,7 @@
             /* Images */
             .container-image__image {
                 height: 200px;
-                width: 300px;
+                width: 100%;
                 object-fit: cover;
                 border-top: 1px solid var(--qc-color-grey-light);
                 border-right: 1px solid var(--qc-color-grey-light);
@@ -111,7 +108,7 @@
 /*** Table ***/
 @media (min-width: 1200px) {
     /** Liste cartes **/
-    .contenu-principal__liste-cartes {
+    .liste-cartes {
         padding: 0 160px 0 160px;
         
         .liste-cartes__item {

@@ -27,9 +27,10 @@ $pdosResultat->closecursor();
 ?>
 
     <?php include($niveau . "inc/fragments/header.html") ?>
-    <h1>Liste des espèces</h1>
     <main class="contenu-principal" id="main">
-        <ul class="contenu-principal__liste-cartes">
+        <qc-to-top></qc-to-top>
+        <h1 class="contenu-prinicipal__titre qc-container">Liste des espèces</h1>
+        <ul class="contenu-principal__liste-cartes liste-cartes qc-container">
             <?php for ($cptAnimale = 0; $cptAnimale < count($arrAnimaux); $cptAnimale++) { ?>
                 <li class="liste-cartes__item">
                     <div class="item__container">

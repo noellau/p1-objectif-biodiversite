@@ -25,7 +25,7 @@ $niveau = "";
 </head>
 
 <body>
-    <?php include($niveau . "inc/fragments/navigation.html") ?>
+    <?php include($niveau . "inc/fragments/header.html") ?>
     <h1>Accueil</h1>
 </body>
 

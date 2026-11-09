@@ -1,13 +1,18 @@
 @charset "UTF-8";
 
 @import url("../sdg/dist/css/qc-sdg.min.css");
-@import url("style-liste.css");
-
+@import url("stylesEspeces.css");
+@font-face {
+        font-family: 'Material Symbols Rounded';
+        font-weight: 100 700;
+        src: url('/chemin/vers/mon-subset-custom.woff2') format('woff2');
+    }
 /***** TABLE DES MATIÈRES *****/
 /*
-    LISTE CARTES
-        Images
-        Informations
+    FICHE
+        Infos rapides
+        Textes
+            Section details
 
     MEDIA QUERIES
         Table
@@ -18,6 +23,7 @@
 
 .contenu-principal {
     padding: 0 10px 0 10px;
+
     /*** FICHE ***/
     .contenu-principal__fiche {
         /** Infos rapides **/
@@ -37,31 +43,43 @@
                 }
             }
         }
+
         /** Textes **/
         .contenu-principal__textes {
             display: flex;
             flex-direction: column;
             gap: 50px;
 
-            .textes__description{
+            .textes__description {
                 margin: 75px 0 15px 0;
             }
 
-            .textes__details {
+            /* Sections details */
+           .textes__details {
                 border: 1px solid var(--qc-color-grey-light);
 
                 .details__titre {
                     font-weight: var(--qc-font-weight-semi-bold);
                     background-color: var(--qc-color-grey-pale);
                     height: 56px;
-                    padding: 16px;
+                    padding: 0 16px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    cursor: pointer;
+                    list-style: none;
                 }
-
-                .details__titre::marker {
-                    color: inherit;
+                .details__titre::after{
+                    font-family: 'Material Symbols Rounded';
+                    font-weight: 700;
+                    content: "\E145";
                 }
-
-                .details__infos{
+                &[open] .details__titre::after {
+                    font-family: 'Material Symbols Rounded';
+                    font-weight: 700;
+                    content: "\E15B"; 
+                }
+                .details__infos {
                     padding: 24px 16px;
                 }
             }

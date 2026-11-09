@@ -2,29 +2,30 @@
 
 @import url("../sdg/dist/css/qc-sdg.min.css");
 
-.nav{
-    background-color: #19406C;
+.nav {
+    background-color: #19406c;
     max-width: 100%;
 
-    .nav__list{
+    .nav__list {
         list-style: none;
         display: flex;
         flex-direction: row;
         gap: 38px;
 
-        .nav__list-item{
-            .nav__link{
+        .nav__list-item {
+            .nav__link {
                 height: 72px;
                 text-decoration: none;
                 font-size: large;
                 color: white;
                 padding: 12px 8px;
             }
-            .nav__link:hover{
-                border-bottom: 4px solid #DAE6F0;
+            .nav__link:hover {
+                border-bottom: 4px solid #dae6f0;
             }
-            .nav__link:active{
+            .nav__link--acive {
                 font-weight: var(--qc-font-weight-semi-bold);
+                border-bottom: 4px solid #dae6f0;
             }
         }
     }
