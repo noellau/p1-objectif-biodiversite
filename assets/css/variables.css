@@ -1,0 +1,12 @@
+:root {
+    --couleur-primaire: #095797;
+    --couleur-texte: #223654;
+    --couleur-accent: #4f813d;
+    --couleur-fond: #ffffff;
+    --couleur-gris-pale: #f1f1f2;
+    --police-titres: 'Roboto', sans-serif;
+    --police-texte: 'Open Sans', sans-serif;
+    --couleur-accent-orange: #d89072;
+    --couleur-menace: #f9d7d1;
+    --couleur-vulnerable: #f2e8b5;
+}
