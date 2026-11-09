@@ -1,0 +1,116 @@
+.footer{
+    width: 100vw;
+    margin-left: calc(50% - 50vw)
+}
+.footer__titre{
+    font-family: var(--police-titres);
+    font-weight: bold;
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+    color: var(--couleur-fond);
+    margin-bottom: 1.2rem;
+    margin-top: 0%;
+    margin-bottom: 2.4rem;
+}
+.footer__titre-nav, .footer__titre-social{
+    font-family: var(--police-titres);
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: var(--couleur-fond);
+    margin-bottom: 1.2rem;
+    margin-top: 0%;
+}
+.footer__principal{
+    background-color: var(--couleur-texte);
+    color: var(--couleur-fond);
+    padding: 2rem;
+    text-align: center;
+    padding: 2rem;
+}
+.footer__nav, .footer__social-media{
+    margin-bottom: 2.4rem;
+}
+.footer__nav-list{
+    list-style: none;
+    padding-left: 0%;
+    margin: 0%;
+}
+.footer__nav-link, .footer__ministere-link, .footer__social-media-link{
+    color: var(--couleur-fond);
+    transition: color 0.3s ease;
+}
+.footer__nav-link:visited, .footer__ministere-link:visited, .footer__social-media-link:visited{
+    color: var(--couleur-fond);
+}
+.footer__nav-link:hover, .footer__ministere-link:hover, .footer__social-media-link:hover{
+    color: var(--couleur-accent-orange);
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 0.4rem;
+}
+.footer__nav-link:focus-visible, .footer__ministere-link:focus-visible, .footer__social-media-link:focus-visible{
+    color: var(--couleur-fond);
+    outline: 0.2rem solid var(--couleur-fond);
+    outline-offset: 0.4rem;
+    opacity: 1;
+}
+.footer__nav-link:active, .footer__ministere-link:active, .footer__social-media-link:active{
+    opacity: 0.7;
+}
+.footer__social-media-link, .footer__nav-link{
+    display:block
+}
+
+.footer__nav-list-item{
+    margin-bottom: 1.2rem;
+}
+.footer__social-media-link p {
+    margin-top: 0%;
+    margin-bottom: 1.2rem;
+}
+.footer__nom-ministere{
+   margin-top:0rem;
+   margin-bottom: 1.2rem;
+}
+.footer__address{
+    margin-top:0%;
+    margin-bottom: 1.2rem;
+}
+
+@media (min-width: 768px){
+    .footer__principal{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        text-align: left;
+    }
+    .footer__titre{
+        grid-column: 1/-1;
+        grid-row: 1;
+    }
+    .footer__titre-nav{
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .footer__titre-social{
+        grid-column: 2;
+        grid-row: 2;
+    }
+    .footer__social-media{
+        grid-column: 2;
+        grid-row: 3;
+    }
+    .footer__nav{
+        grid-column: 1;
+        grid-row: 3;
+    }
+    .footer__nom-ministere{
+        grid-column: 1/-1;
+        grid-row: 4;
+    }
+    .footer__address{
+        grid-column: 1/-1;
+        grid-row: 5;
+    }
+}
