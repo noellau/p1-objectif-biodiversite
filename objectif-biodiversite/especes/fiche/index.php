@@ -168,4 +168,5 @@ $pdosResultat->closeCursor();
         </ul>
     </div>
 </main>
+<?php include($niveau . "inc/fragments/footer.html") ?>
 </body>
