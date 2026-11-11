@@ -2,7 +2,7 @@
      $niveau = "";
     include($niveau . "inc/config.inc.php");
     $strRequete = "SELECT `especes`.id, `nom_francais`, `nom_scientifique`, `statut_LEMV`, `nom_groupe`, `nom_image`
-    FROM `especes`
+    ,`bas-de-vignette` FROM `especes`
     JOIN `groupes` ON `especes`.groupe_id = `groupes`.id
     INNER JOIN images ON `especes`.id = `images`.espece_id
     WHERE `est_aire-repartition` = 0 AND (`statut_LEMV` = 'Vulnérable' OR `statut_LEMV` = 'Menacée') ORDER BY RAND() LIMIT 3";
@@ -63,8 +63,57 @@
             </article>
         <?php } ?>
         </section>
-        <section class="especes" aria-label="Espèces à découvrir">
-        <h2>Espèces à découvrir</h2>
+        <section class="contenu-principal__especes">
+        <h2 class="especes__titre-secondaire qc-container">Espèces du même groupe</h2>
+        <ul class="especes__liste-cartes liste-cartes qc-container">
+            <?php for ($cptEspeces = 0; $cptEspeces < count($arrEspeces); $cptEspeces++) { ?>
+                <li class="liste-cartes__item">
+                    <div class="item__container">
+                        <picture class="item__container-image">
+                            <img class="container-image__image"
+                                src="<?= $niveau ?>assets/images/<?= $arrEspeces[$cptEspeces]['nom_image'] ?>"
+                                alt="<?= $arrEspeces[$cptEspeces]['bas-de-vignette'] ?>">
+                        </picture>
+                        <div class="item__infos-espece">
+                            <h3 class="infos-espece__nom-francais">
+                                <?php
+                                echo $arrEspeces[$cptEspeces]['nom_francais'];
+                                if (count(explode(" ", $arrEspeces[$cptEspeces]['nom_francais'])) >= 5) {
+                                    echo " ...";
+                                }
+                                ?>
+                            </h3>
+                            <p class="infos-espece__nom-scientifique">
+                                <?= $arrEspeces[$cptEspeces]['nom_scientifique'] ?>
+                            </p>
+                            <div class="infos-espece__section-pastilles">
+                                <div class="section-pastilles__groupe pastille">
+                                    <?= $arrEspeces[$cptEspeces]['nom_groupe'] ?>
+                                </div>
+                                <div class="section-pastilles__statut pastille
+                            <?php
+                            if ($arrEspeces[$cptEspeces]['statut_LEMV'] == "Menacée") {
+                                echo "pastille-rouge";
+                            } else if ($arrEspeces[$cptEspeces]['statut_LEMV'] == "Vulnérable") {
+                                echo "pastille-jaune";
+                            } else {
+                                echo "pastille-verte";
+                            }
+                            ?>">
+                                    <?= $arrEspeces[$cptEspeces]['statut_LEMV'] ?>
+                                </div>
+                            </div>
+                            <div>
+                                <a class="qc-button qc-secondary infos-espece__btn"
+                                    href="fiche/index.php?id=<?php echo $arrEspeces[$cptEspeces]['id'] ?>">Consulter la
+                                    fiche</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            <?php } ?>
+        </ul>
+    </section>
         <?php foreach ($arrEspeces as $objEspece) { ?>
             <article class="espece">
                 <img class="espece__image" src="<?php echo $niveau; ?>assets/images/<?php echo htmlspecialchars($objEspece['nom_image']); ?>" alt="<?php echo htmlspecialchars($objEspece['nom_francais']); ?>" />
@@ -82,7 +131,6 @@
 
             </article>
         <?php } ?>
-        </section>
         <section class="mise-action" aria-label="Mise à l'action">
         <h2 class="mise-action__titre">Pourquoi protéger ces espèces?</h2>
         <img class="mise-action__image" src="assets/images/IMG_Carcajou_ZooSt-Felicien.jpg">
