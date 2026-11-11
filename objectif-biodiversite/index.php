@@ -105,7 +105,7 @@
                             </div>
                             <div>
                                 <a class="qc-button qc-secondary infos-espece__btn"
-                                    href="fiche/index.php?id=<?php echo $arrEspeces[$cptEspeces]['id'] ?>">Consulter la
+                                    href="especes/fiche/index.php?id=<?php echo $arrEspeces[$cptEspeces]['id'] ?>">Consulter la
                                     fiche</a>
                             </div>
                         </div>
