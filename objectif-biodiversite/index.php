@@ -114,23 +114,7 @@
             <?php } ?>
         </ul>
     </section>
-        <?php foreach ($arrEspeces as $objEspece) { ?>
-            <article class="espece">
-                <img class="espece__image" src="<?php echo $niveau; ?>assets/images/<?php echo htmlspecialchars($objEspece['nom_image']); ?>" alt="<?php echo htmlspecialchars($objEspece['nom_francais']); ?>" />
-                <h3 class="espece__titre"><?php echo htmlspecialchars($objEspece['nom_francais']); ?></h3>
-                <i class="espece__nom-scientifique"><?php echo htmlspecialchars($objEspece['nom_scientifique']); ?></i>
-                <span class="espece__groupe"><?php echo htmlspecialchars($objEspece['nom_groupe']); ?></span>
-                <span class="<?php if ($objEspece['statut_LEMV'] === 'Menacée') {
-                     echo 'espece__statut-menace';
-                      } else {
-                         echo 'espece__statut-vulnerable'; 
-                         } ?>">
-                    <?php echo htmlspecialchars($objEspece['statut_LEMV']); ?>
-                </span>
-                <a href="<?php echo $niveau; ?>especes/fiche/index.php?id=<?php echo htmlspecialchars($objEspece['id']); ?>" class="espece__button-lien">Consulter la fiche</a>
-
-            </article>
-        <?php } ?>
+        
         <section class="mise-action" aria-label="Mise à l'action">
         <h2 class="mise-action__titre">Pourquoi protéger ces espèces?</h2>
         <img class="mise-action__image" src="assets/images/IMG_Carcajou_ZooSt-Felicien.jpg">
