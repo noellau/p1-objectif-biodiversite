@@ -49,6 +49,10 @@ for ($intCptPart = 0; $intCptPart < $nbAnimauxSug; $intCptPart++) {
 }
 $pdosResultat->closeCursor();
 ?>
+
+<head>
+    <title>Objectif biodiversité - <?= $arrAnimale['nom_francais'] ?></title>
+</head>
 <?php include($niveau . "inc/fragments/header.html") ?>
 <main class="contenu-principal">
     <div class="contenu-principal__fiche">

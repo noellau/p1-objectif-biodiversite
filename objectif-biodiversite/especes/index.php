@@ -5,20 +5,6 @@ $blnStatusIsset = isset($_GET['statuts']);
 
 include($niveau . "inc/config.inc.php");
 
-$intPage = isset($_GET['page']) ? (int) $_GET['page'] : 1;
-if ($intPage < 1) {
-    $intPage = 1;
-}
-$intParPage = 10;
-
-$intDepart = ($intPage - 1) * $intParPage;
-$strRequete = "SELECT COUNT(*) AS total FROM especes INNER JOIN groupes ON especes.groupe_id = groupes.id INNER JOIN images ON especes.id = images.espece_id WHERE images.nom_image LIKE 'IMG%' ORDER BY nom_francais";
-$pdosResultat = $pdoConnexion->query($strRequete);
-$ligne = $pdosResultat->fetch();
-$intTotal = (int) $ligne['total'];
-$intNbPages = ceil($intTotal / $intParPage);
-$strRequete = "SELECT especes.id AS id, especes.nom_francais AS nom_francais, especes.nom_scientifique AS nom_scientifique, especes.statut_LEMV AS statut, groupes.nom_groupe AS groupe, images.nom_image, images.`bas-de-vignette` FROM especes INNER JOIN groupes ON especes.groupe_id = groupes.id INNER JOIN images ON especes.id = images.espece_id WHERE images.nom_image LIKE 'IMG%' ORDER BY nom_francais LIMIT $intParPage OFFSET $intDepart";
-
 $strRequete = "SELECT * FROM groupes";
 $pdosResultat = $pdoConnexion->query($strRequete);
 
@@ -36,8 +22,18 @@ for ($cptEnr = 0; $ligne = $pdosResultat->fetch(); $cptEnr++) {
     $arrStatuts[$cptEnr]['statut_LEMV'] = $ligne['statut_LEMV'];
 }
 
-$pdosResultat->closecursor();
+$intPage = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+if ($intPage < 1) {
+    $intPage = 1;
+}
+$intParPage = 10;
 
+$intDepart = ($intPage - 1) * $intParPage;
+$strRequete = "SELECT COUNT(*) AS total FROM especes INNER JOIN groupes ON especes.groupe_id = groupes.id INNER JOIN images ON especes.id = images.espece_id WHERE images.nom_image LIKE 'IMG%' ORDER BY nom_francais";
+$pdosResultat = $pdoConnexion->query($strRequete);
+$ligne = $pdosResultat->fetch();
+$intTotal = (int) $ligne['total'];
+$intNbPages = ceil($intTotal / $intParPage);
 $strRequete = "SELECT especes.id AS id, especes.nom_francais AS nom_francais, especes.nom_scientifique AS nom_scientifique, especes.statut_LEMV AS statut, groupes.nom_groupe AS groupe, images.nom_image, images.`bas-de-vignette` FROM especes INNER JOIN groupes ON especes.groupe_id = groupes.id INNER JOIN images ON especes.id = images.espece_id WHERE images.nom_image LIKE 'IMG%'";
 
 if ($blnGroupesIsset || $blnStatusIsset) {
@@ -60,8 +56,7 @@ if ($blnGroupesIsset || $blnStatusIsset) {
     }
 }
 
-$strRequete .= " ORDER BY nom_francais";
-
+$strRequete .= " ORDER BY nom_francais LIMIT $intParPage OFFSET $intDepart";
 $pdosResultat = $pdoConnexion->query($strRequete);
 
 $arrAnimaux = array();
@@ -83,6 +78,9 @@ for ($cptEnr = 0; $ligne = $pdosResultat->fetch(); $cptEnr++) {
 $pdosResultat->closecursor();
 ?>
 
+<head>
+    <title>Objectif biodiversité - liste des espèces</title>
+</head>
 <?php include($niveau . "inc/fragments/header.html") ?>
 <main class="contenu-principal" id="main">
     <qc-to-top></qc-to-top>
