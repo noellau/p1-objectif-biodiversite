@@ -2,8 +2,19 @@
 $niveau = "../";
 
 include($niveau . "inc/config.inc.php");
+$intPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+if ($intPage < 1) {
+    $intPage = 1;
+}
+$intParPage = 10;
 
-$strRequete = "SELECT especes.id AS id, especes.nom_francais AS nom_francais, especes.nom_scientifique AS nom_scientifique, especes.statut_LEMV AS statut, groupes.nom_groupe AS groupe, images.nom_image, images.`bas-de-vignette` FROM especes INNER JOIN groupes ON especes.groupe_id = groupes.id INNER JOIN images ON especes.id = images.espece_id WHERE images.nom_image LIKE 'IMG%' ORDER BY nom_francais";
+$intDepart = ($intPage - 1) * $intParPage;
+$strRequete = "SELECT COUNT(*) AS total FROM especes INNER JOIN groupes ON especes.groupe_id = groupes.id INNER JOIN images ON especes.id = images.espece_id WHERE images.nom_image LIKE 'IMG%' ORDER BY nom_francais";
+$pdosResultat = $pdoConnexion->query($strRequete);
+$ligne = $pdosResultat->fetch();
+$intTotal = (int) $ligne['total'];
+$intNbPages = ceil($intTotal / $intParPage);
+$strRequete = "SELECT especes.id AS id, especes.nom_francais AS nom_francais, especes.nom_scientifique AS nom_scientifique, especes.statut_LEMV AS statut, groupes.nom_groupe AS groupe, images.nom_image, images.`bas-de-vignette` FROM especes INNER JOIN groupes ON especes.groupe_id = groupes.id INNER JOIN images ON especes.id = images.espece_id WHERE images.nom_image LIKE 'IMG%' ORDER BY nom_francais LIMIT $intParPage OFFSET $intDepart";
 
 $pdosResultat = $pdoConnexion->query($strRequete);
 
@@ -76,6 +87,25 @@ $pdosResultat->closecursor();
                 </li>
             <?php } ?>
         </ul>
+        <nav class="contenu-principal__pagination pagination" aria-label="Pagination">
+            <ul class="pagination__liste">
+                <?php if ($intPage > 1) { ?>
+                    <li class="pagination__item">
+                        <a class="pagination__lien" href="?page=<?php echo $intPage - 1; ?>" aria-label="Page précédente">Précédent</a>
+                    </li>
+                <?php } ?>
+                <?php for ($i = 1; $i <= $intNbPages; $i++) { ?>
+                    <li class="pagination__item">
+                        <a class="pagination__lien <?php if ($i == $intPage) echo 'pagination__lien--actif'; ?>" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                    </li>
+                <?php } ?>
+                <?php if ($intPage < $intNbPages) { ?>
+                    <li class="pagination__item">
+                        <a class="pagination__lien" href="?page=<?php echo $intPage + 1; ?>" aria-label="Page suivante">Suivant</a>
+                    </li>
+                <?php } ?>
+            </ul>
+        </nav>
     </main>
     <?php include($niveau . "inc/fragments/footer.html") ?>
 </body>
