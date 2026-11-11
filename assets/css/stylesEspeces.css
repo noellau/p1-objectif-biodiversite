@@ -143,8 +143,6 @@
 @media (min-width: 1200px) {
     /** Liste cartes **/
     .liste-cartes {
-        padding: 0 160px 0 160px;
-        
         .liste-cartes__item {
             width: 360px;
 

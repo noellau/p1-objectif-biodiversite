@@ -35,6 +35,12 @@ for ($intCptEnr = 0; $intCptEnr < $pdosResultat->rowCount(); $intCptEnr++) {
     $arrAnimauxSug[$intCptEnr]['nom_image'] = $ligne['nom_image'];
     $arrAnimauxSug[$intCptEnr]['bas-de-vignette'] = $ligne['bas-de-vignette'];
     $ligne = $pdosResultat->fetch();
+
+    $arrNomFrancais = explode(" ", (string) $arrAnimauxSug[$intCptEnr]['nom_francais']);
+    if (count($arrNomFrancais) > 5) {
+        array_splice($arrNomFrancais, 5, count($arrNomFrancais));
+    }
+    $arrAnimauxSug[$intCptEnr]['nom_francais'] = implode(" ", $arrNomFrancais);
 }
 if (count($arrAnimauxSug) < 3) {
     $nbAnimauxSug = count($arrAnimauxSug);
@@ -162,7 +168,8 @@ $pdosResultat->closeCursor();
                             </div>
                             <div>
                                 <a class="qc-button qc-secondary infos-espece__btn"
-                                    href="fiche/index.php?id=<?php echo $arrAnimauxChoisis[$cptAnimale]['id'] ?>">Consulter la
+                                    href="fiche/index.php?id=<?php echo $arrAnimauxChoisis[$cptAnimale]['id'] ?>">Consulter
+                                    la
                                     fiche</a>
                             </div>
                         </div>
