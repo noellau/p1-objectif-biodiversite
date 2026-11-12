@@ -23,11 +23,11 @@
   - [Auteur](#auteur)
 
 ## Présentation
-
+L'objectif biodiversité quebec est un microsite dynamique qui présente les espèces menacées et vulnérables du Québec (53 espèces).
 ### Description, principaux défis 
- 
+ La page d'accueil est composéé de l'hero avec le slogan « Découvrir. Comprendre. Protéger. », statuts expliqués, 3 actualités les plus récentes tirées de la base de données, 3 espèces vedettes au hasard, et une mise à l'action. La liste des espèces est composée des 53 espèces de A à Z, avec filtres par groupe et par statut, et pagination (10 par page). Les fiches descriptives ont une page par espèce, avec photo, nom scientifique, statut et carte de répartition. Les principaux défis ont été Les actualités depuis la base de données, le lien d'évitement, le hero en plein écran, l'alignement du footer en tablette et La pagination avec les filtres.
 ### Liens 
-- [URL Github](https://github.com/USER )
+- [URL Github](https://github.com/noellau/p1-objectif-biodiversite)
 - [URL TimUnix3](https://timunix3.csfoy.ca~RAMSTER)
 
 ## Mon Processus
