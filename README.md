@@ -28,7 +28,7 @@ L'objectif biodiversité quebec est un microsite dynamique qui présente les esp
  La page d'accueil est composéé de l'hero avec le slogan « Découvrir. Comprendre. Protéger. », statuts expliqués, 3 actualités les plus récentes tirées de la base de données, 3 espèces vedettes au hasard, et une mise à l'action. La liste des espèces est composée des 53 espèces de A à Z, avec filtres par groupe et par statut, et pagination (10 par page). Les fiches descriptives ont une page par espèce, avec photo, nom scientifique, statut et carte de répartition. Les principaux défis ont été Les actualités depuis la base de données, le lien d'évitement, le hero en plein écran, l'alignement du footer en tablette et La pagination avec les filtres.
 ### Liens 
 - [URL Github](https://github.com/noellau/p1-objectif-biodiversite)
-- [URL TimUnix3](https://timunix3.csfoy.ca~RAMSTER)
+- [URL TimUnix3](https://timunix3.csfoy.ca/~RAMster/)
 
 ## Mon Processus
 J'ai débuté avec le fichier config, puis les index.php des base (la page d'accueil). Le html de la page d'accuiel est aussi inclu dans index.php, directement ou par des liens include() vers des fragments pour header.html et footer.html. J'ai créé le footer.html
